@@ -1,0 +1,60 @@
+swagger: '2.0'
+info:
+  title: University Enrollment API
+  version:  '1.0.0'
+
+# basePath:
+products:
+  - application/json
+
+paths:
+
+  /recommendations/rank
+    get:
+      summary: universities filter by rank
+      description: The recommendations by rank endpoint returns a list of universities and their enrollment information in the last 5 years based on student's rank of the SAT score
+      parameters:
+        - name: stu_type
+          in: query
+          description: student type to filter by. (arts/sciences)
+          required: true
+          type: string
+        - name: stu_src
+          in: query
+          description: student source to filter by. (the province where the student took the SAT exam)
+          required: true
+          type: string
+        - name: base_rank
+          in: query
+          description: base_rank to filter by
+          required: true
+          type: interger
+          format: int32
+      responses:
+        '200':
+          description: university response
+        'default':
+          description: unexpected error
+
+  /recommendations/score_diff
+    get:
+      summary: universities filter by score
+      description: The recommendations by score_diff endpoint returns a list of universities and their enrollment information in the last 5 years based on score diffenerces of the student's score and and batch score
+
+  /recommendations/major/rank
+
+  /recommendations/major/score_diff
+
+  /university/{u_id}
+
+  /university-enrollment
+
+  /major-enrollment
+
+  /rank
+
+  /batch-score
+
+definitions:
+  University:
+    type: object
